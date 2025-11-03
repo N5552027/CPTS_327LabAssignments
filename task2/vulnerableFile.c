@@ -30,10 +30,20 @@ for task 2 of Lab 1 */
 #endif
 
 // Use built-in ro read the current function's fram address (EBP).
-static inline void *get_ebp(void)
+void *get_ebp(void)
 {
-    return __builtin_fram_address(0);  
+    return __builtin_frame_address(0);  
 }
+
+/*
+uintptr_t get_ebp_asm(void)
+{
+    uintptr_t ebp;
+    asm("mov1 %%ebp, %0" : "=r"(ebp));
+    return ebp;
+}
+*/
+
 
 static void bof(const char* src)
 {
@@ -41,7 +51,8 @@ static void bof(const char* src)
 
     // compute and print buffer address, current EBP, saved RET location, and offset
 
-    void *ebpPtr = get_ebp();                   // current EBP 
+    void* ebpPtr = get_ebp();
+    // uintptr_t ebpPtr = get_ebp_asm();        // current EBP 
     uintptr_t buf = (uintptr_t)buffer;
     uintptr_t ebp = (uintptr_t)ebpPtr;      
     uintptr_t retloc = ebp + 4;                 // saved return address
@@ -63,13 +74,11 @@ static void bof(const char* src)
     printf("[EXPLOITATION FAILED] -> Returning normally");
 }
 
-int main(int argc, char *argv[])
-{
+int main(int argc, char *argv[]) {
     // IN PROBE MODE, CALL BOF() WITH A DUMMY STRING; 
     // Probe mode does not require a file input
 
-    if (getenv("PROBE"))
-    {
+    if (getenv("PROBE")) {
         bof("DUMMY");
         return 0;
     }
