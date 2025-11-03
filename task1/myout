@@ -1,0 +1,172 @@
+[Entering Main]: 
+&a=ff98cb6c, &b=ff98cb70, &c=ff98cb74
+
+[ARGV]
+argc=1
+	 argv[0] = "./a.out"   &argv[0]=ff98cc44    argb[0]_ptr=ff98e3ef
+
+
+[ENTERING FUNCTION A]
+[A Locals]: &d=0xff98cb20    &e=0xff98cb24     &f=0xff98cb28
+
+[A Input Params]:  &x=0xff98cb40    &y=0xff98cb44
+
+[ENTERING B]:
+[B Locals]: &g=0xff98caf0    &h=0xff98caf4     &i=0xff98caf8
+
+[B Input Params]:  &x=0xff98cb10    &y=0xff98cb14
+
+[ENTER C]:
+[C Locals]: &u=ff98caa4   &v=ff98caa8    &w=ff98caac    i=ff98cab0    &p=ff98cab4
+[C Input Parameters]: &x=ff98cae0    &y=ff98cae4
+
+[Frame Pointer/Saved RET]
+	 FP(C.EBP) = 0xff98ca98
+	 RET(EBP+4) = 0x08049648
+
+[Frame Chain]
+	 #00    FP=0xff98ca98   prevFP=0xff98cad8
+	 #01    FP=0xff98cad8   prevFP=0xff98cb08
+	 #02    FP=0xff98cb08   prevFP=0xff98cb38
+	 #03    FP=0xff98cb38   prevFP=0xff98cb98
+	 #04    FP=0xff98cb98   prevFP=0x00000000
+	 ... -> NULL (or limit reached)
+[Stack Dump] from p=0xff98caa4, 128 words (4B each)
+	 p[000] @ 0xff98caa4 : 0x0000000a 
+	 p[001] @ 0xff98caa8 : 0x0000000b 
+	 p[002] @ 0xff98caac : 0x0000000c 
+	 p[003] @ 0xff98cab0 : 0xff98cbb0 
+	 p[004] @ 0xff98cab4 : 0xff98caa4 
+	 p[005] @ 0xff98cab8 : 0x08049648 
+	 p[006] @ 0xff98cabc : 0xa9f03600 
+	 p[007] @ 0xff98cac0 : 0xf7f5ad20 
+	 p[008] @ 0xff98cac4 : 0x0804a200 
+	 p[009] @ 0xff98cac8 : 0xff98cae4 
+	 p[010] @ 0xff98cacc : 0x0804c000 
+	 p[011] @ 0xff98cad0 : 0xff98cbb0 
+	 p[012] @ 0xff98cad4 : 0xff98e3ef 
+	 p[013] @ 0xff98cad8 : 0xff98cb08 
+	 p[014] @ 0xff98cadc : 0x08049589 
+	 p[015] @ 0xff98cae0 : 0x00000007 
+	 p[016] @ 0xff98cae4 : 0x00000008 
+	 p[017] @ 0xff98cae8 : 0xff98cb14 
+	 p[018] @ 0xff98caec : 0xff98caf8 
+	 p[019] @ 0xff98caf0 : 0x00000007 
+	 p[020] @ 0xff98caf4 : 0x00000008 
+	 p[021] @ 0xff98caf8 : 0x00000009 
+	 p[022] @ 0xff98cafc : 0xa9f03600 
+	 p[023] @ 0xff98cb00 : 0xff98cbb0 
+	 p[024] @ 0xff98cb04 : 0x0804c000 
+	 p[025] @ 0xff98cb08 : 0xff98cb38 
+	 p[026] @ 0xff98cb0c : 0x080494cc 
+	 p[027] @ 0xff98cb10 : 0x00000004 
+	 p[028] @ 0xff98cb14 : 0x00000005 
+	 p[029] @ 0xff98cb18 : 0xff98cb44 
+	 p[030] @ 0xff98cb1c : 0xff98cb28 
+	 p[031] @ 0xff98cb20 : 0x00000004 
+	 p[032] @ 0xff98cb24 : 0x00000005 
+	 p[033] @ 0xff98cb28 : 0x00000006 
+	 p[034] @ 0xff98cb2c : 0xa9f03600 
+	 p[035] @ 0xff98cb30 : 0x0804a0ec 
+	 p[036] @ 0xff98cb34 : 0x0804c000 
+	 p[037] @ 0xff98cb38 : 0xff98cb98 
+	 p[038] @ 0xff98cb3c : 0x08049408 
+	 p[039] @ 0xff98cb40 : 0x00000001 
+	 p[040] @ 0xff98cb44 : 0x00000002 
+	 p[041] @ 0xff98cb48 : 0xff98e3ef 
+	 p[042] @ 0xff98cb4c : 0xff98cb74 
+	 p[043] @ 0xff98cb50 : 0xf7f58224 
+	 p[044] @ 0xff98cb54 : 0x00080000 
+	 p[045] @ 0xff98cb58 : 0xff98cc4c 
+	 p[046] @ 0xff98cb5c : 0xff98cc44 
+	 p[047] @ 0xff98cb60 : 0xf7f5a000 
+	 p[048] @ 0xff98cb64 : 0xf7f892d0 
+	 p[049] @ 0xff98cb68 : 0x00000000 
+	 p[050] @ 0xff98cb6c : 0x00000001 
+	 p[051] @ 0xff98cb70 : 0x00000002 
+	 p[052] @ 0xff98cb74 : 0x00000003 
+	 p[053] @ 0xff98cb78 : 0x00000001 
+	 p[054] @ 0xff98cb7c : 0xa9f03600 
+	 p[055] @ 0xff98cb80 : 0x00000001 
+	 p[056] @ 0xff98cb84 : 0xff98cc44 
+	 p[057] @ 0xff98cb88 : 0xff98cbb0 
+	 p[058] @ 0xff98cb8c : 0x00000000 
+	 p[059] @ 0xff98cb90 : 0xf7f5a000 
+	 p[060] @ 0xff98cb94 : 0xf7f5a000 
+	 p[061] @ 0xff98cb98 : 0x00000000 
+	 p[062] @ 0xff98cb9c : 0xf7d8bed5 
+	 p[063] @ 0xff98cba0 : 0xf7f5a000 
+	 p[064] @ 0xff98cba4 : 0xf7f5a000 
+	 p[065] @ 0xff98cba8 : 0x00000000 
+	 p[066] @ 0xff98cbac : 0xf7d8bed5 
+	 p[067] @ 0xff98cbb0 : 0x00000001 
+	 p[068] @ 0xff98cbb4 : 0xff98cc44 
+	 p[069] @ 0xff98cbb8 : 0xff98cc4c 
+	 p[070] @ 0xff98cbbc : 0xff98cbd4 
+	 p[071] @ 0xff98cbc0 : 0xf7f5a000 
+	 p[072] @ 0xff98cbc4 : 0x00000000 
+	 p[073] @ 0xff98cbc8 : 0xff98cc28 
+	 p[074] @ 0xff98cbcc : 0x00000000 
+	 p[075] @ 0xff98cbd0 : 0xf7fa4000 
+	 p[076] @ 0xff98cbd4 : 0x00000000 
+	 p[077] @ 0xff98cbd8 : 0xf7f5a000 
+	 p[078] @ 0xff98cbdc : 0xf7f5a000 
+	 p[079] @ 0xff98cbe0 : 0x00000000 
+	 p[080] @ 0xff98cbe4 : 0x2a635908 
+	 p[081] @ 0xff98cbe8 : 0xaa891f18 
+	 p[082] @ 0xff98cbec : 0x00000000 
+	 p[083] @ 0xff98cbf0 : 0x00000000 
+	 p[084] @ 0xff98cbf4 : 0x00000000 
+	 p[085] @ 0xff98cbf8 : 0x00000001 
+	 p[086] @ 0xff98cbfc : 0x080490c0 
+	 p[087] @ 0xff98cc00 : 0x00000000 
+	 p[088] @ 0xff98cc04 : 0xf7f8ead4 
+	 p[089] @ 0xff98cc08 : 0xf7f892d0 
+	 p[090] @ 0xff98cc0c : 0x0804c000 
+	 p[091] @ 0xff98cc10 : 0x00000001 
+	 p[092] @ 0xff98cc14 : 0x080490c0 
+	 p[093] @ 0xff98cc18 : 0x00000000 
+	 p[094] @ 0xff98cc1c : 0x080490f6 
+	 p[095] @ 0xff98cc20 : 0x080492ed 
+	 p[096] @ 0xff98cc24 : 0x00000001 
+	 p[097] @ 0xff98cc28 : 0xff98cc44 
+	 p[098] @ 0xff98cc2c : 0x08049710 
+	 p[099] @ 0xff98cc30 : 0x08049780 
+	 p[100] @ 0xff98cc34 : 0xf7f892d0 
+	 p[101] @ 0xff98cc38 : 0xff98cc3c 
+	 p[102] @ 0xff98cc3c : 0x0000001c 
+	 p[103] @ 0xff98cc40 : 0x00000001 
+	 p[104] @ 0xff98cc44 : 0xff98e3ef 
+	 p[105] @ 0xff98cc48 : 0x00000000 
+	 p[106] @ 0xff98cc4c : 0xff98e3f7 
+	 p[107] @ 0xff98cc50 : 0xff98e407 
+	 p[108] @ 0xff98cc54 : 0xff98e465 
+	 p[109] @ 0xff98cc58 : 0xff98e478 
+	 p[110] @ 0xff98cc5c : 0xff98e48c 
+	 p[111] @ 0xff98cc60 : 0xff98e4b9 
+	 p[112] @ 0xff98cc64 : 0xff98e4d0 
+	 p[113] @ 0xff98cc68 : 0xff98e4fc 
+	 p[114] @ 0xff98cc6c : 0xff98e51c 
+	 p[115] @ 0xff98cc70 : 0xff98e545 
+	 p[116] @ 0xff98cc74 : 0xff98e559 
+	 p[117] @ 0xff98cc78 : 0xff98e570 
+	 p[118] @ 0xff98cc7c : 0xff98e583 
+	 p[119] @ 0xff98cc80 : 0xff98e59f 
+	 p[120] @ 0xff98cc84 : 0xff98e5d9 
+	 p[121] @ 0xff98cc88 : 0xff98e5ec 
+	 p[122] @ 0xff98cc8c : 0xff98e607 
+	 p[123] @ 0xff98cc90 : 0xff98e61c 
+	 p[124] @ 0xff98cc94 : 0xff98e650 
+	 p[125] @ 0xff98cc98 : 0xff98e679 
+	 p[126] @ 0xff98cc9c : 0xff98e69a 
+	 p[127] @ 0xff98cca0 : 0xff98e6a7 
+
+
+[EXITING C]
+
+
+[EXITING B]
+
+[EXITING A]
+
+[EXITING MAIN]
