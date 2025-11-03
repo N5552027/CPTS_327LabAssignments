@@ -1,37 +1,36 @@
-[Entering Main]:                                                                                     | NOTES: 
-&a=ff98cb6c, &b=ff98cb70, &c=ff98cb74                                                                | NOTES: 
-                                                                                                     | NOTES: 
+[Entering Main]:                                                                                     | NOTES: Start of function
+&a=ff98cb6c, &b=ff98cb70, &c=ff98cb74                                                                | NOTES: Main initializes the three local variables to main at the addresses shown
+                                                                                                    
 [ARGV]                                                                                               | NOTES: 
-argc=1                                                                                               | NOTES: 
-	 argv[0] = "./a.out"   &argv[0]=ff98cc44    argb[0]_ptr=ff98e3ef                                 | NOTES: 
-                                                                                                     | NOTES: 
-                                                                                                     | NOTES: 
+argc=1                                                                                               | NOTES: Argument call 1
+	 argv[0] = "./a.out"   &argv[0]=ff98cc44    argb[0]_ptr=ff98e3ef                                 | NOTES: fields of certain argument parts
+                                                                                                   
 [ENTERING FUNCTION A]                                                                                | NOTES: 
-[A Locals]: &d=0xff98cb20    &e=0xff98cb24     &f=0xff98cb28                                         | NOTES: 
-                                                                                                     | NOTES: 
-[A Input Params]:  &x=0xff98cb40    &y=0xff98cb44                                                    | NOTES: 
-                                                                                                     | NOTES: 
-[ENTERING B]:                                                                                        | NOTES: 
-[B Locals]: &g=0xff98caf0    &h=0xff98caf4     &i=0xff98caf8                                         | NOTES: 
-                                                                                                     | NOTES: 
-[B Input Params]:  &x=0xff98cb10    &y=0xff98cb14                                                    | NOTES: 
-                                                                                                     | NOTES: 
-[ENTER C]:                                                                                           | NOTES: 
-[C Locals]: &u=ff98caa4   &v=ff98caa8    &w=ff98caac    i=ff98cab0    &p=ff98cab4                    | NOTES: 
-[C Input Parameters]: &x=ff98cae0    &y=ff98cae4                                                     | NOTES: 
-                                                                                                     | NOTES: 
+[A Locals]: &d=0xff98cb20    &e=0xff98cb24     &f=0xff98cb28                                         | NOTES: Local  only to function A. Here are their addresses
+                                                                                                     
+[A Input Params]:  &x=0xff98cb40    &y=0xff98cb44                                                    | NOTES: addresses of the input variables. They do not match the addresses of a and b in main since we're passing in a copy of the variable, not the direct address/direct value
+                                                                                                     
+[ENTERING B]:                                                                                        | NOTES: Entering Fucntion B
+[B Locals]: &g=0xff98caf0    &h=0xff98caf4     &i=0xff98caf8                                         | NOTES: local variables to function B. Here are tehir addresses
+                                                                                                    
+[B Input Params]:  &x=0xff98cb10    &y=0xff98cb14                                                    | NOTES: addresses of the input variables. They do not match the addresses of a and b in main since we're passing in a copy of the variable, not the direct address/direct value
+                                                                                                    
+[ENTER C]:                                                                                           | NOTES: Entering function B
+[C Locals]: &u=ff98caa4   &v=ff98caa8    &w=ff98caac    i=ff98cab0    &p=ff98cab4                    | NOTES: local functions to C. here are their addresses
+[C Input Parameters]: &x=ff98cae0    &y=ff98cae4                                                     | NOTES: addresses of the input variables. They do not match the addresses of a and b in main since we're passing in a copy of the variable, not the direct address/direct value
+                                                                                                     
 [Frame Pointer/Saved RET]                                                                            | NOTES: 
 	 FP(C.EBP) = 0xff98ca98                                                                          | NOTES: 
 	 RET(EBP+4) = 0x08049648                                                                         | NOTES: 
-                                                                                                     | NOTES: 
-[Frame Chain]                                                                                        | NOTES: 
+                                                                                                   
+[Frame Chain]                                                                                        | NOTES: Frame Chain begins
 	 #00    FP=0xff98ca98   prevFP=0xff98cad8                                                        | NOTES: 
 	 #01    FP=0xff98cad8   prevFP=0xff98cb08                                                        | NOTES: 
 	 #02    FP=0xff98cb08   prevFP=0xff98cb38                                                        | NOTES: 
 	 #03    FP=0xff98cb38   prevFP=0xff98cb98                                                        | NOTES: 
 	 #04    FP=0xff98cb98   prevFP=0x00000000                                                        | NOTES: 
 	 ... -> NULL (or limit reached)                                                                  | NOTES: 
-[Stack Dump] from p=0xff98caa4, 128 words (4B each)                                                  | NOTES: 
+[Stack Dump] from p=0xff98caa4, 128 words (4B each)                                                  | NOTES: Stack Dump Begins
 	 p[000] @ 0xff98caa4 : 0x0000000a                                                                | NOTES: 
 	 p[001] @ 0xff98caa8 : 0x0000000b                                                                | NOTES: 
 	 p[002] @ 0xff98caac : 0x0000000c                                                                | NOTES: 
@@ -160,13 +159,13 @@ argc=1                                                                          
 	 p[125] @ 0xff98cc98 : 0xff98e679                                                                | NOTES: 
 	 p[126] @ 0xff98cc9c : 0xff98e69a                                                                | NOTES: 
 	 p[127] @ 0xff98cca0 : 0xff98e6a7                                                                | NOTES: 
-                                                                                                     | NOTES: 
-                                                                                                     | NOTES: 
-[EXITING C]                                                                                          | NOTES: 
-                                                                                                     | NOTES: 
-                                                                                                     | NOTES: 
-[EXITING B]                                                                                          | NOTES: 
-                                                                                                     | NOTES: 
-[EXITING A]                                                                                          | NOTES: 
-                                                                                                     | NOTES: 
-[EXITING MAIN]                                                                                       | NOTES: 
+                                                                                                     
+
+[EXITING C]                                                                                          | NOTES: Finished Function C
+                                                                                                    
+
+[EXITING B]                                                                                          | NOTES: Finished Function B
+                                                                                                      
+[EXITING A]                                                                                          | NOTES: Finished Function B
+                                                                                                     
+[EXITING MAIN]                                                                                       | NOTES: Finished Main
