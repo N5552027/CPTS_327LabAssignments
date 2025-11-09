@@ -17,6 +17,9 @@ def init_db():
     """Initialize the database and create the credential table if it does not exist.
        Insert sample data with SHA1 hashed passwords."""
     db_exists = os.path.exists(DATABASE)
+
+    print("DB Exists at:", os.path.abspath(DATABASE))
+
     conn = get_db_connection()
     cursor = conn.cursor()
     cursor.execute('''CREATE TABLE IF NOT EXISTS credential (
@@ -32,7 +35,13 @@ def init_db():
         Password TEXT,
         PhoneNumber TEXT
     );''')
-    if not db_exists:
+
+    # check if table is empty
+    cursor.execute("SELECT COUNT(*) FROM credential")
+    count = cursor.fetchone()[0]
+
+
+    if count == 0:
         # Insert sample data; passwords are stored as SHA1 hash
         sample_data = [
             ('admin', '99999', 400000, '3/5', '43254314', 'admin', 'admin@example.com', 'admin address', hashlib.sha1('seedadmin'.encode()).hexdigest(), '123456789'),
@@ -46,6 +55,7 @@ def init_db():
             'INSERT INTO credential (name, eid, salary, birth, ssn, nickname, email, address, Password, PhoneNumber) VALUES (?,?,?,?,?,?,?,?,?,?)',
             sample_data
         )
+    
     conn.commit()
     conn.close()
 
@@ -88,16 +98,22 @@ def login():
     
     conn = get_db_connection()
     cursor = conn.cursor()
+
     try:
         cursor.execute(query)
         row = cursor.fetchone()
+
     except Exception as e:
         conn.close()
         return jsonify({'error': str(e)})
+    
     conn.close()
+
+    print("Query returned:", row)
 
     if row:
         return jsonify(dict(row))
+    
     else:
         return jsonify({'message': 'Authentication failed'})
 
