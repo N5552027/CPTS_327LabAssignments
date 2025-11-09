@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login Page - SQL Injection Demo</title>
+  <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+  <h1>Login</h1>
+  
+  <p>Current Student: <strong>{{ student_username }}</strong> (<a href="/logout">Change User</a>)</p>
+
+  <form action="/login" method="get">
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" placeholder="Enter username">
+    <br><br>
+    <label for="Password">Password:</label>
+    <input type="password" id="Password" name="Password" placeholder="Enter password">
+    <br><br>
+    <input type="submit" value="Login">
+  </form>
+  
+  <p><a href="/">Back to Home</a></p>
+</body>
+</html>

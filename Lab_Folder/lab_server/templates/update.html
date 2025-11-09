@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Update Profile - SQL Injection Demo</title>
+  <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+  <h1>Update Profile</h1>
+
+  <p>Current Student: <strong>{{ student_username }}</strong> (<a href="/logout">Change User</a>)</p>
+
+  <form action="/update_profile" method="post">
+    <label for="id">User ID:</label>
+    <input type="text" id="id" name="id" placeholder="Enter your user ID">
+    <br><br>
+    <label for="nickname">Nickname:</label>
+    <input type="text" id="nickname" name="nickname" placeholder="Enter nickname">
+    <br><br>
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" placeholder="Enter email">
+    <br><br>
+    <label for="address">Address:</label>
+    <input type="text" id="address" name="address" placeholder="Enter address">
+    <br><br>
+    <label for="Password">Password:</label>
+    <input type="password" id="Password" name="Password" placeholder="Enter new password">
+    <br><br>
+    <label for="PhoneNumber">Phone Number:</label>
+    <input type="text" id="PhoneNumber" name="PhoneNumber" placeholder="Enter phone number">
+    <br><br>
+    <input type="submit" value="Update Profile">
+  </form>
+
+  <p><a href="/">Back to Home</a></p>
+</body>
+</html>

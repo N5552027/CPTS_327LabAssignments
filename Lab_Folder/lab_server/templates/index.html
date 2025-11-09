@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SQL Injection Demo</title>
+  <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+  <h1>SQL Injection Demonstration</h1>
+
+  <!-- Student Username Section -->
+  <form method="POST">
+    <label for="student_username">Enter Your Name:</label>
+    <input type="text" name="student_username" placeholder="Your Name" required>
+    <input type="submit" value="Start Experiment">
+  </form>
+
+  <p>Current Student: <strong>{{ student_username }}</strong> (<a href="/logout">Change User</a>)</p>
+
+  <h2>Database Users</h2>
+  <table border="1">
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>EID</th>
+      <th>Salary</th>
+      <th>Birth</th>
+      <th>SSN</th>
+      <th>Address</th>
+      <th>Email</th>
+      <th>Nickname</th>
+      <th>Phone</th>
+    </tr>
+    {% for user in users %}
+    <tr>
+      <td>{{ user['id'] }}</td>
+      <td>{{ user['name'] }}</td>
+      <td>{{ user['eid'] }}</td>
+      <td>{{ user['salary'] }}</td>
+      <td>{{ user['birth'] }}</td>
+      <td>{{ user['ssn'] }}</td>
+      <td>{{ user['address'] }}</td>
+      <td>{{ user['email'] }}</td>
+      <td>{{ user['nickname'] }}</td>
+      <td>{{ user['PhoneNumber'] }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+
+  <ul>
+    <li><a href="/login_page">Login Page</a></li>
+    <li><a href="/update_page">Update Profile Page</a></li>
+  </ul>
+
+  <footer>
+    <p>Reference: SEED Labs – SQL Injection Attack Lab</p>
+  </footer>
+</body>
+</html>
