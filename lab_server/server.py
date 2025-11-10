@@ -83,24 +83,29 @@ def index():
 
 @app.route('/login', methods=['GET'])
 def login():
+
     """
     Login endpoint.
     Expects 'username' and 'Password' as URL parameters.
     This version is intentionally vulnerable to SQL injection.
     """
+
     username = request.args.get('username', '')
     password = request.args.get('Password', '')
     hashed_pwd = hashlib.sha1(password.encode()).hexdigest()
 
-    query = "SELECT id, name, eid, salary, birth, ssn, address, email, nickname, Password FROM credential WHERE name = '{}' and Password = '{}'".format(username, hashed_pwd)
-    
-    print("Executing SQL: " + query)  # Debug log
+    vulnerableQuery = """SELECT id, name, eid, salary, birth, ssn, address, email, nickname, Password FROM credential WHERE name = '{}' and Password = '{}'""".format(username, hashed_pwd)
+    # query = "SELECT ... WHERE name = ? AND Password = ?"
+
+    print("Executing SQL: " + vulnerableQuery) # debug log
+    # print("Executing SQL: " + query)  # Debug log
     
     conn = get_db_connection()
     cursor = conn.cursor()
 
     try:
-        cursor.execute(query)
+        cursor.execute(vulnerableQuery) # This is bad and vulnerable to injection
+        # cursor.execute(query,(username, hashed_pwd))
         row = cursor.fetchone()
 
     except Exception as e:
@@ -134,14 +139,20 @@ def update_profile():
     
     hashed_pwd = hashlib.sha1(password.encode()).hexdigest()
 
-    query = ("UPDATE credential SET nickname='{}', email='{}', address='{}', Password='{}', PhoneNumber='{}' "
+    vulnerableQuery = ("UPDATE credential SET nickname='{}', email='{}', address='{}', Password='{}', PhoneNumber='{}' "
              "WHERE id={}").format(nickname, email, address, hashed_pwd, phone_number, user_id)
     
-    print("Executing SQL: " + query)  # Debug log
+    query = "UPDATE credential SET nickname=?, email=?, address=?, Password=?, phoneNumber=? WHERE id=?"
+
+
+    # print("Executing SQL: " + vulnerableQuery)  # Debug log
+    # print("Executing SQL: " + query)
+    
     conn = get_db_connection()
     cursor = conn.cursor()
     try:
-        cursor.execute(query)
+        # cursor.execute(vulnerableQuery) # vulnerable to SQL injection
+        cursor.execute(query, (nickname, email, address, hashed_pwd, phone_number, user_id))
         conn.commit()
     except Exception as e:
         conn.close()
