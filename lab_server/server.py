@@ -94,11 +94,11 @@ def login():
     password = request.args.get('Password', '')
     hashed_pwd = hashlib.sha1(password.encode()).hexdigest()
 
-    vulnerableQuery = """SELECT id, name, eid, salary, birth, ssn, address, email, nickname, Password FROM credential WHERE name = '{}' and Password = '{}'""".format(username, hashed_pwd)
-    # query = "SELECT ... WHERE name = ? AND Password = ?"
+    # vulnerableQuery = """SELECT id, name, eid, salary, birth, ssn, address, email, nickname, Password FROM credential WHERE name = '{}' and Password = '{}'""".format(username, hashed_pwd)
+    query = "SELECT ... WHERE name = ? AND Password = ?"
 
-    print("Executing SQL: " + vulnerableQuery) # debug log
-    # print("Executing SQL: " + query)  # Debug log
+    # print("Executing SQL: " + vulnerableQuery) # debug log
+    print("Executing SQL: " + query)  # Debug log
     
     conn = get_db_connection()
     cursor = conn.cursor()
@@ -139,14 +139,14 @@ def update_profile():
     
     hashed_pwd = hashlib.sha1(password.encode()).hexdigest()
 
-    vulnerableQuery = ("UPDATE credential SET nickname='{}', email='{}', address='{}', Password='{}', PhoneNumber='{}' "
-             "WHERE id={}").format(nickname, email, address, hashed_pwd, phone_number, user_id)
+    # vulnerableQuery = ("UPDATE credential SET nickname='{}', email='{}', address='{}', Password='{}', PhoneNumber='{}' "
+    #         "WHERE id={}").format(nickname, email, address, hashed_pwd, phone_number, user_id)
     
     query = "UPDATE credential SET nickname=?, email=?, address=?, Password=?, phoneNumber=? WHERE id=?"
 
 
     # print("Executing SQL: " + vulnerableQuery)  # Debug log
-    # print("Executing SQL: " + query)
+    print("Executing SQL: " + query)
     
     conn = get_db_connection()
     cursor = conn.cursor()
@@ -183,3 +183,4 @@ if __name__ == '__main__':
     init_db()
     app.run(host='0.0.0.0', port=5000, debug=True)
     print("Server is running on http://localhost:5000")
+
